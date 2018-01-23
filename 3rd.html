@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang ="en">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+
+</head>
+<body>
+  앵귤러 03작업
+<!--
+  <div ng-app=""ng-init="a=1;b=2;c=3">
+    <p> {{a+b+c}}
+  </div>
+-->
+<!--
+  <div ng-app="" data-ng-init="myData={first:'첫번째',second:'두번째',third:'세번째'}">
+    <p>{{myData.first}}
+    <p>{{myData.second}}
+    <p>{{myData.third}}
+-->
+<!--
+  <div ng-app="" data-ng-init = "myArr=[2017,2018,2019]">
+    <p data-ng-bind="myArr[0]">
+    <p data-ng-bind="myArr[1]">
+    <p data-ng-bind="myArr[2]">
+  </div>
+
+  HTML5에서는 사용자저의 속성을 위해서 data속성을 만들었음.
+  HTML내에서는 data-시작되며, html5가 적용된 브라우저에서는 이를 해석하지 않고 건너 뜀(즉 화면에 영향을 주지 않음)
+  data- 속성은 생성갯수는 제한이 없음.
+  <input type="text" style="" aaa="xxx">
+-->
+
+<div  ng-app="" data-ng-init="firstVal=2;secondVal=3">
+  <input type="text" data-ng-model="firstVal">
+  *
+  <input type="text" data-ng-model="secondVal">
+  <p>
+    {{firstVal*secondVal}}
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Insert title here</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script>
+    var thisApp = angular.module('thisAppModule', []);
+    thisApp.controller('thisAppController', function($scope) {
+      $scope.firstVal = '첫번째값';
+      $scope.secondVal = '두번째값';
+    });
+  </script>
+</head>
+
+<body>
+  앵귤러 02작업
+  <div ng-app="thisAppModule" ng-controller="thisAppController" ng-init="color='yellow'">
+    <p><input type="text" ng-model="firstVal">
+    <p><input type="text" ng-model="secondVal">
+    <p><input type="text" style="background-color:{{color}}" value="{{color}}">
+    <p>{{firstVal + ";"+secondVal}}
+  <div>
+</body>
+
+</html>

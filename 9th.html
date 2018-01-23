@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+<script>
+  angular.module("myapp",[]).controller("myappCtrl",function($scope){
+
+    $scope.tempData=[
+      {first:"2017",second:"korea"},
+      {first:"2018",second:"america"},
+      {first:"2019",second:"japan"},
+      {first:"2020",second:"china"}
+    ];
+    $scope.moneyValue=60;
+    $scope.today=new Date();
+    $scope.tempArray = ['korea','america','japan','china'];
+    $scope.checkKorea=function(data){
+      return data.second =='korea'; //투르폴스
+    };
+    $scope.keyValue=[
+      {key:'first',value:'2017'},
+      {key:'second',value:'2018'},
+      {key:'third',value:'2019'}
+    ]
+  });
+
+</script>
+</head>
+  <body ng-app="myapp" ng-controller="myappCtrl">
+  앵귤러 09작업
+  <ul>
+    <li ng-repeat = "item in tempData | orderBy:'second'">
+      {{item.first+':'+item.second}}
+    </li>
+  </ul>
+  <ul>
+    <li ng-repeat="item in tempData|filter:'c'">
+      {{item.first+':'+item.second}}
+    </li>
+  </ul>
+  <ul>
+    <li ng-repeat="item in tempData|filter:checkKorea">
+      {{item.first+':'+item.second}}
+    </li>
+  </ul>
+  <p>
+    <input type="text" ng-model="inputChar" />
+    <ul>
+      <li ng-repeat="item in tempArray|filter:inputChar">
+        {{item}}
+      </li>
+    </ul>
+    <p>
+      {{moneyValue|currency:'$'}} [숫자에 각국환율 기호 표시]
+    </p>
+    <p>
+      {{today|date:'yyyy-MM-dd HH:mm:ss'}} [데이트 포멧]
+    </p>
+    <p>
+      {{'hong gil dong'|uppercase}} [어퍼케이스]
+    </p>
+    <p>
+      {{'HONG GIL DONG'|lowercase}} [로워케이스]
+    </p>
+    <p>
+      {{123.4415|number:2}}[소수점 몇번째자리까지 출력할까 몇번째+1번째에서 반올림]
+      <br />
+      {{123.4415|number:-2}}[-number면 소수점에서 오른쪽으로 몇번째자리까지 출력할까]
+    </p>
+    <p>
+      {{1234567890|limitTo:5}} [리미트투5 앞에서 다섯자리만 출력해줌]
+      <br />
+      {{1234567890|limitTo:-5}} [리미트투5 뒤에서 다섯자리만 출력해줌]
+    </p>
+
+    <p>
+      <select>
+        <option ng-repeat="item in keyValue" value="{{item.key}}">
+          {{item.value}}
+        </option>
+      </select>
+    </p>
+  </p>
+  </body>
+
+</html>

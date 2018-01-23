@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+<script>
+  var app = angular.module("myapp",[]);
+  app.controller("appController",function($scope){
+    $scope.imsiName="홍길동";
+    $scope.realName="아부지";
+    $scope.showAlert=function(str){
+      alert(str);
+    }
+
+  });
+
+</script>
+</head>
+
+  <body ng-app="myapp" ng-controller="appController">
+
+    앵귤러 07작업 email 작업
+    <p>
+
+
+
+    <form name = "alform">
+      이메일<br />
+      <input type="email" name="emailName" ng-model="emailValue" required >
+        <div ng-show="alform.emailName.$error.email"> 정상적인 이메일 주소를 입력하세요요요오들레이호!
+        </div>
+    <p>
+
+      숫자<br>
+
+      <input type="number" name="numberName" ng-model="numberValue" required >
+        <div ng-show="alform.numberName.$error.number"> 정상적인 숫자를 입력하세요요요오들레이호!
+        </div>
+
+      내용 박스<br />
+      <input type="text" name="textName" ng-model="textValue" required />
+      <div ng-show="alform.textName.$touched && alform.textName.$error.required">내용을 입력해주세요들레이호</div>
+      <div ng-show ="alform.textName.$touched && alform.textName.$invalid">invalid 를 이용한 내용을 입력해주세요들레이호</div>
+      <div ng-show="alform.textName.$touched && alform.textName.$valid">정상적으로 입력이 되었씁니다.</div>
+      <div ng-show="alform.textName.$dirty">내용이 변경 되었습니다.</div>
+
+      <p>
+
+      ng(Event)<br />
+      <!--
+      ng- click , ng-mousedown, ng-mouseup, ng-mouseenter, ng-mouseleave
+      ng-keydown, ng-keyup, ng-dblclick
+      -->
+      <input type="text" ng-keydown="cnt=cnt+1" >{{"숫자"+cnt}}
+
+      <p>
+      <input name="name2" ng-model="imsiName" ng-dblclick="showAlert('ng-dblclick 에서 이벤트 발생')" >
+      <p>
+      <input name="name3" ng-model="realName" ng-change="showAlert('내용이 변경 되었습니다.')" />
+
+    </form>
+  </body>
+
+</html>

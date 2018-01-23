@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Insert title here</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script>
+    var app = angular.module("myapp", []);
+    app.controller('myappCtrl', function($scope) {
+      $scope.all = "앵규우우울러"
+    });
+  </script>
+</head>
+
+<body ng-app="myapp" ng-controller="myappCtrl">
+
+  앵귤러 07작업
+  <p>
+
+    <input ng-model="all"> <strong>{{all}}</strong>
+
+    <p>
+      <input type="checkbox" ng-model="btnCheck">
+      <input type="button" value="버튼1" ng-disabled="!btnCheck">
+
+    <p>
+      <input type="checkbox" ng-model="btnShow">
+      <input type="button" value="버튼2" ng-show="!btnShow">
+
+    <p>
+      <input type="button" value="버튼3" ng-click="cnt = cnt+1">{{" "+cnt}}
+</body>
+
+</html>

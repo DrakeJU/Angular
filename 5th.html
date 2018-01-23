@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Insert title here</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script>
+      var app = angular.module("myapp",[]);
+      app.directive("myappData",function(){
+        return{
+                      <!--E = element , A = attribute, C = class-->
+            <!--restrict:"EAC",-->
+            restrict:"E",
+            transclude:true,
+            template: "<div><span ng-transclude>앵귤러 directive 적용 내용요오오오오오옹<div>"
+
+        }
+      });
+
+  </script>
+</head>
+
+<body ng-app="myapp">
+  앵귤러 05작업
+
+
+  <myapp-data>324</myapp-data> <!--324는 위에 함수에 의해 덥혀씌여짐 -->
+  <p>
+  <div class="myapp-data"></div>
+  <p>
+
+
+  <sss-data></sss-data>
+  HTML에서 dom 관리하는 기능
+
+
+
+</body>
+
+</html>

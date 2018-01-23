@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Insert title here</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script>
+  var app = angular.module("myapp",[]);
+  app.controller("personCtrl",personData);
+  app.directive("myappData",myDataPrint);
+
+  function myDataPrint(){
+    return{
+
+      restrict:"E",
+      template:"<div>{{person.name+'/'}}{{person.place}}</div>",
+      link: function(scope,elements,attributes){
+        elements.css('color','red');
+        elements.css('font-size','30px');
+
+      }
+    }
+  }
+    function personData($scope){
+      var personData = [
+        {name:"홍길동",place:"서울"},
+        {name:"이순신",place:"여수"},
+        {name:"노무현",place:"진도"},
+      ];
+      $scope.persons =personData;
+
+    }
+
+  </script>
+</head>
+<body ng-app="myapp" ng-controller="personCtrl">
+
+  앵귤러 06작업
+
+  <div ng-repeat ="person in persons">
+    <myapp-Data></myapp-Data>
+  </div>
+
+
+</body>
+
+</html>
